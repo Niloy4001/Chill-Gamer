@@ -19,9 +19,15 @@ const Slider = () => {
   };
 
   const images = [
-    "https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "https://images.unsplash.com/photo-1549396535-c11d5c55b9df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "https://i.ibb.co.com/Mp4yngP/slider1.png",
+    "https://i.ibb.co.com/kDhyr7r/slider2.png",
+    "https://i.ibb.co.com/rpWk3RV/slider3.png",
+    "https://i.ibb.co.com/YDrsYG7/slider4.png",
+    "https://i.ibb.co.com/fFGbyTH/slider5.png",
+    "https://i.ibb.co.com/bgPfRMZ/slider6.png",
+    "https://i.ibb.co.com/1rfwkv9/slider7.png",
+    "https://i.ibb.co.com/tQzLq46/slider9.png",
+    "https://i.ibb.co.com/G54MjYW/slider8.png",
   ];
 
   return (

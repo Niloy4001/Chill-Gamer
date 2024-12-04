@@ -17,7 +17,7 @@ const HighestRated = () => {
       </h1>
       <p className="text-center text-base md:text-xl mb-6 md:mb-14">Experience Gaming Excellence with the Highest Ratings.</p>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 justify-center items-center">
-        {allData.map((datum) => (
+        {allData ? allData.map((datum) => (
           <div key={datum._id} className="card bg-base-100  shadow-xl">
             <figure className="px-10 pt-10">
               <img
@@ -37,7 +37,10 @@ const HighestRated = () => {
               </div>
             </div>
           </div>
-        ))}
+        ))
+        :
+        <p className="text-4xl text-red-400 text-center">No data in database</p>
+      }
       </div>
     </div>
   );

@@ -1,21 +1,78 @@
-import React, { createContext, useState } from 'react'
-export const AuthContext = createContext(null)
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import auth from "../firebase/firebase.config";
+export const AuthContext = createContext(null);
+
+const googleProvider = new GoogleAuthProvider();
+
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // login or register by google
+  const logInByGoogle = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  //sign in by email and password
+  const signInByEmailPassword = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  // Log In by Email and Password
+  const logInByEmailPassword = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // log out
+  const logOut = () => {
+    return signOut(auth);
+  };
 
 
-
-const AuthProvider = ({children}) => {
-    const [user, setUser] = useState(null)
-
-
-    const info = {
-        user
-    }
-
-  return (
-    <AuthContext.Provider value={info}>
-        {children}
-    </AuthContext.Provider>
-  )
+//   update user profile
+const manageProfile = (name, photo)=>{
+    return updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photo
+      })
 }
 
-export default AuthProvider
+  //   Get the current sign in user
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser) 
+        // console.log(currentUser);
+              
+      } else {
+        setUser(null)
+      }
+      setLoading(false)
+    });
+
+    return ()=>{
+        unsubscribe();
+    }
+  }, []);
+  const info = {
+    user,
+    loading,
+    logInByGoogle,
+    signInByEmailPassword,
+    logOut,
+    logInByEmailPassword,
+    manageProfile
+  };
+
+  return <AuthContext.Provider value={info}>{children}</AuthContext.Provider>;
+};
+
+export default AuthProvider;

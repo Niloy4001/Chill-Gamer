@@ -6,7 +6,7 @@ import { AuthContext } from '../context/AuthProvider';
 
 const Navbar = () => {
     // const { user, logOut } = useContext(AuthContext)
-    const {user} = useContext(AuthContext)
+    const {user,logOut} = useContext(AuthContext)
     const [open, setOpen] = useState(false)
     return (
         <div className="bg-blue-500 text-white pb-8">
@@ -50,15 +50,15 @@ const Navbar = () => {
                             <div className="auth flex items-center gap-2">
                                 <Link to={"/auth"} className=" border-none  rounded-full">
                                     {
-                                        user &&
+                                        // user &&
                                         <div className='flex flex-col items-center'>
-                                            <img src={user.photoURL} alt="" className='w-8 h-8 rounded-full' />
+                                            <img src={user && user.photoURL} alt="" className='w-8 h-8 rounded-full' />
                                             <p className='text-xs'>{user.email}</p>
                                         </div>
                                         // console.log(user.photoURL)
                                     }
                                 </Link>
-                                <button to={"/auth/signUp"}
+                                <button to={"/login"}
                                     onClick={logOut}
                                     className="btn border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Log Out</button>
                             </div>

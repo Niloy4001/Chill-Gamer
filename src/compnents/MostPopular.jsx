@@ -30,15 +30,18 @@ const MostPopular = () => {
           </thead>
           <tbody>
             {/* row  */}
-            {allData.map((datum, idx) => (
-              <tr className="hover">
+            {allData ? allData.map((datum, idx) => (
+              <tr className="hover" key={datum._id}>
                 <th>{idx + 1}</th>
                 <td>{datum.gameTitle} </td>
                 <td>{datum.reviewDescription} </td>
                 <td>{datum.genres} </td>
                 <td>{datum.rating} </td>
               </tr>
-            ))}
+            ))
+            :
+            <p className="text-4xl text-red-400 text-center">No data in database</p>
+          }
           </tbody>
         </table>
       </div>

@@ -1,56 +1,28 @@
 import React, { useContext, useRef, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
-import { RiEyeLine } from "react-icons/ri";
-import { HiOutlineEyeOff } from "react-icons/hi";
-import Swal from 'sweetalert2';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { HiOutlineEyeOff } from 'react-icons/hi';
+import { RiEyeLine } from 'react-icons/ri';
 import { AuthContext } from '../context/AuthProvider';
 
-const Register = () => {
-    const { logInByGoogle, signInByEmailPassword, user, manageProfile, logOut } = useContext(AuthContext)
+const LogIn = () => {
+    const { logInByGoogle, logInByEmailPassword, user, setForgotEmail } = useContext(AuthContext)
+    const { state } = useLocation()
     const [errorMessage, setErrorMessage] = useState('')
-    const nameRef = useRef()
-    const photoUrlRef = useRef()
+    const [eye, setEye] = useState(false)
+
+
+    const navigate = useNavigate()
     const emailRef = useRef()
     const passwordRef = useRef()
-    const navigate = useNavigate()
-    const [eye, setEye] = useState(false)
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
-    const notify = () => {
-        Swal.fire({
-            title: 'Password,',
-            html: `<ul class="list-disc  space-y-2 text-gray-800 ml-8">
-                <li class="text-left text-red-600">
-                    Must have an Uppercase letter 
-                </li>
-                <li class="text-left text-red-600">
-                    Must have a Lowercase letter
-                </li>
-                <li class="text-left text-red-600">
-                    Length must be at least 6 characters
-                </li>
-                </ul>`,
-            confirmButtonColor: "red",
-            icon: "error"
-        });
-    }
-    const notifyForLogIn = () => {
-        Swal.fire({
-            title: 'Registration Successful, Please Log In',
-            confirmButtonColor: "green",
-            icon: "success"
-        });
-    }
 
-    // handle google sign in
+    // handle google log in
     const handleGoogleLogIn = () => {
         setErrorMessage('')
         logInByGoogle()
             .then(res => {
-                navigate('/')
-                logOut()
-                notifyForLogIn()
+                navigate(state ? `${state}` : '/')
             })
             .catch(err => setErrorMessage(err.message))
     }
@@ -59,47 +31,45 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrorMessage('')
-        const name = nameRef.current.value
-        const photo = photoUrlRef.current.value
         const email = emailRef.current.value
         const password = passwordRef.current.value
-
-        if (!passwordRegex.test(password)) {
-            return notify()
-        }
-
-        signInByEmailPassword(email, password)
+        logInByEmailPassword(email, password)
             .then(res => {
-                navigate('/')
-                notifyForLogIn()
-                logOut()
                 e.target.reset()
-                manageProfile(name, photo)
-                    .then(response => 'good')
-                    .catch(err => setErrorMessage(err.message))
-
+                navigate(state ? `${state}` : '/')
             })
             .catch(err => setErrorMessage(err.message))
+        // console.log(email, password);
+
+
+    }
 
 
 
+
+    // handle forgot 
+    const handleForgot = () => {
+        setForgotEmail('')
+        const email = emailRef.current.value
+        email && setForgotEmail(email)
+        navigate("/auth/forgot")
     }
     return (
         <div>
             <Helmet>
-                <title>Sign Up | Chill Gamer</title>
+                <title>Login | Discount Pro</title>
             </Helmet>
             <div className='flex justify-center items-center py-14 px-3'>
                 <div className="card bg-base-100 w-full max-w-lg p-4 shrink-0 shadow-2xl">
                     {/* title */}
-                    <h1 className='text-4xl text-center font-bold mb-5'>Register</h1>
+                    <h1 className='text-4xl text-center font-bold mb-5'>Log In</h1>
                     {/* google log in */}
                     <div className='w-full px-8'>
                         <button
                             onClick={handleGoogleLogIn}
-                            className="btn text-[10px] md:text-sm border border-solid border-blue-500 hover:text-white hover:bg-blue-700 w-full flex items-center justify-center space-x-1 mb-2">
+                            className="btn text-[10px] md:text-sm border border-solid border-blue-500 hover:text-white hover:bg-blue-700 w-full flex items-center justify-center space-x-2 mb-2">
                             <FaGoogle className="text-blue-500 " />
-                            <span>Register with Google</span>
+                            <span>Login with Google</span>
                         </button>
                     </div>
                     {/* divider */}
@@ -108,18 +78,6 @@ const Register = () => {
                     </div>
                     {/* form  */}
                     <form className="card-body" onSubmit={handleSubmit}>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input ref={nameRef} type="text" placeholder="Name" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Photo URL</span>
-                            </label>
-                            <input ref={photoUrlRef} type="text" placeholder="Photo URL" className="input input-bordered" required />
-                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -143,13 +101,13 @@ const Register = () => {
                             </span>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn hover:bg-blue-700 bg-blue-500 text-white">Register</button>
+                            <button className="btn bg-blue-500 text-white hover:bg-blue-700">Login</button>
                         </div>
                         <div>
                             <p className='text-left text-red-600'>{errorMessage && errorMessage} </p>
                         </div>
                         <div>
-                            <p className='text-center my-3'>Already Have an Account ? <Link to={"/login"} className='text-red-600 font-medium'>Log In</Link></p>
+                            <p className='text-center my-3'>Don't Have an Account ? <Link to={"/register"} className='text-red-600 font-medium'>Register</Link></p>
                         </div>
                     </form>
                 </div>
@@ -158,4 +116,9 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default LogIn;
+
+
+
+
+

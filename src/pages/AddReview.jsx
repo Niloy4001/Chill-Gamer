@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthProvider";
 
 const AddReview = () => {
+
+  const {user} = useContext(AuthContext)
+ 
+  
+
   const notify = () => {
     Swal.fire({
       title: "Successfully added your review",
@@ -18,6 +24,7 @@ const AddReview = () => {
     const rating = form.rating.value;
     const publishingYear = form.publishingYear.value;
     const genres = form.genres.value;
+    const userName = form.userName.value;
     const userEmail = form.userEmail.value;
 
     const review = {
@@ -27,6 +34,7 @@ const AddReview = () => {
       rating,
       publishingYear,
       genres,
+      userName,
       userEmail,
     };
 
@@ -130,6 +138,19 @@ const AddReview = () => {
             </select>
           </div>
 
+          {/* User Name (Read Only) */}
+          <div className="form-control">
+            <label htmlFor="userEmail">User Name:</label>
+            <input
+              className="input border border-solid border-gray-400"
+              type="text"
+              id="userName"
+              name="userName"
+              value={user.displayName}
+              readOnly
+            />
+          </div>
+          
           {/* User Email (Read Only) */}
           <div className="form-control">
             <label htmlFor="userEmail">User Email:</label>
@@ -138,7 +159,7 @@ const AddReview = () => {
               type="email"
               id="userEmail"
               name="userEmail"
-              value={"niloysikder58bd@gmail.com"}
+              value={user.email}
               readOnly
             />
           </div>

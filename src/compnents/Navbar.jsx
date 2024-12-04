@@ -43,6 +43,8 @@ const Navbar = () => {
                        } */}
                     </nav>
                     {/* Authentication */}
+
+                    
                     {
                         user ?
                             <div className="auth flex items-center gap-2">

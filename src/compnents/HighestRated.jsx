@@ -15,6 +15,7 @@ const HighestRated = () => {
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
         Highest Rated Games
       </h1>
+      <p className="text-center text-base md:text-xl mb-6 md:mb-14">Experience Gaming Excellence with the Highest Ratings.</p>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 justify-center items-center">
         {allData.map((datum) => (
           <div key={datum._id} className="card bg-base-100  shadow-xl">

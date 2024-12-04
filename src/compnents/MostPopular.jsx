@@ -15,6 +15,7 @@ const MostPopular = () => {
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
         Most Popular Games
       </h1>
+      <p className="text-center text-base md:text-xl mb-6 md:mb-14">Trendsetters and Crowd-Pleasers—Explore the Games Everyone’s Talking About.</p>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

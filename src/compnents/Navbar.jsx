@@ -65,8 +65,8 @@ const Navbar = () => {
                             :
 
                             <div className="auth flex items-center gap-2">
-                                <Link to={"/auth"} className="btn border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Login</Link>
-                                <Link to={"/auth/signUp"} className="btn border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Register</Link>
+                                <Link to={"/login"} className="btn border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Login</Link>
+                                <Link to={"/register"} className="btn border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Register</Link>
                             </div>
                     }
 

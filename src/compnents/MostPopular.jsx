@@ -20,7 +20,7 @@ const MostPopular = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
+              <th>Index</th>
               <th>Name</th>
               <th>Description</th>
               <th>Genres</th>

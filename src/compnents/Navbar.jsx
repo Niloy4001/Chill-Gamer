@@ -34,7 +34,7 @@ const Navbar = () => {
                     <nav className={`${open ? 'flex items-baseline gap-2' : 'hidden'} lg:flex flex-col lg:flex-row space-x-4 items-center`}>
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="/brands">All Reviews</NavLink>
-                        <NavLink to="/brands">Add Review</NavLink>
+                        <NavLink to="/addReview">Add Review</NavLink>
                         <NavLink to="/brands">My Reviews</NavLink>
                         <NavLink to="/brands">Game WatchList</NavLink>
                        
@@ -44,7 +44,7 @@ const Navbar = () => {
                     </nav>
                     {/* Authentication */}
 
-                    
+
                     {
                         user ?
                             <div className="auth flex items-center gap-2">

@@ -17,6 +17,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+
   // login or register by google
   const logInByGoogle = () => {
     return signInWithPopup(auth, googleProvider);
@@ -69,7 +70,7 @@ const manageProfile = (name, photo)=>{
     signInByEmailPassword,
     logOut,
     logInByEmailPassword,
-    manageProfile
+    manageProfile,
   };
 
   return <AuthContext.Provider value={info}>{children}</AuthContext.Provider>;

@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const HighestRated = () => {
-  const [allData, setAllData] = useState([]);
+const AllReviews = () => {
+    const [allData, setAllData] = useState([]);
+   
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("http://localhost:5000/allReviews")
       .then((res) => res.json())
       .then((data) => {
         setAllData(data);
       });
   }, []);
+
+
   return (
     <div className="w-[90%] mx-auto py-14 md:py-28">
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
-        Highest Rated Games
+       All Reviews
       </h1>
       <p className="text-center text-base md:text-xl mb-6 md:mb-14">
         Experience Gaming Excellence with the Highest Ratings.
@@ -35,10 +38,8 @@ const HighestRated = () => {
                 <p>{datum.reviewDescription}</p>
                 <p>Rating: {datum.rating}</p>
                 <div className="card-actions">
-                  <Link
-                    to={`/reviewDetails/${datum._id}`}
-                    className="btn btn-sm btn-primary"
-                  >
+                  <Link to={`/reviewDetails/${datum._id}`} 
+                    className="btn btn-sm btn-primary">
                     Explore Details
                   </Link>
                 </div>
@@ -55,4 +56,4 @@ const HighestRated = () => {
   );
 };
 
-export default HighestRated;
+export default AllReviews;

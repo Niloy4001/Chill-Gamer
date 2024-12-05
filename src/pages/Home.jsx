@@ -11,11 +11,7 @@ const Home = () => {
       <div className="fixed bottom-[5%] z-10 left-0 bg-gray-500 py-1 w-20 pr-2 flex justify-end rounded-r-full">
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
-          <input
-            type="checkbox"
-            className="theme-controller"
-            value="dark"
-          />
+          <input type="checkbox" className="theme-controller" value="dark" />
 
           {/* sun icon */}
           <svg

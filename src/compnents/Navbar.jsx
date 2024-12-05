@@ -1,20 +1,27 @@
 import React, { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { AuthContext } from '../context/AuthProvider';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
     // const { user, logOut } = useContext(AuthContext)
     const {user,logOut} = useContext(AuthContext)
     const [open, setOpen] = useState(false)
+    const navigate = useNavigate()
+    const handleLogOut = () =>{
+        logOut()
+        navigate("/")
+    }
     return (
-        <div className="bg-blue-500 text-white pb-8">
-            <nav className="w-[90%] mx-auto">
+        <div className="bg-blue-500 text-white ">
+            <nav className="w-[90%] mx-auto py-6">
                 {/* Row 1: Welcome Message */}
-                <div className="text-center py-2">
+                {/* <div className="text-center py-2">
                     <p className="text-lg font-semibold">{user ? `Welcome ,${user.displayName}` : ''} </p>
-                </div>
+                </div> */}
                 {/* Row 2: Navigation */}
                 <div className="flex justify-between md:flex-row flex-col items-center px-4 py-2 gap-4">
                     {/* Logo */}
@@ -35,8 +42,8 @@ const Navbar = () => {
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="/allReviews">All Reviews</NavLink>
                         <NavLink to="/addReview">Add Review</NavLink>
-                        <NavLink to="/brands">My Reviews</NavLink>
-                        <NavLink to="/brands">Game WatchList</NavLink>
+                        <NavLink to={`/MyReviews/${user && user.email}`}>My Reviews</NavLink>
+                        <NavLink to={`/gameWatchList/${user && user.email}`}>Game WatchList</NavLink>
                        
                        {/* {
                         user &&  <NavLink to="/my-profile">👤 My Profile</NavLink>
@@ -48,30 +55,29 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="auth flex items-center gap-2">
-                                <Link to={"/auth"} className=" border-none  rounded-full">
+                                <button  className=" border-none  rounded-full">
                                     {
-                                        // user &&
-                                        <div className='flex flex-col items-center'>
+                                        <div data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} data-tooltip-place="left">
                                             <img src={user && user.photoURL} alt="" className='w-8 h-8 rounded-full' />
-                                            <p className='text-xs'>{user.email}</p>
                                         </div>
-                                        // console.log(user.photoURL)
                                     }
-                                </Link>
+                                </button>
                                 <button to={"/login"}
-                                    onClick={logOut}
-                                    className="btn border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Log Out</button>
+                                    onClick={handleLogOut}
+                                    className="btn btn-sm border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Log Out
+                                </button>
                             </div>
                             :
 
                             <div className="auth flex items-center gap-2">
-                                <Link to={"/login"} className="btn border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Login</Link>
-                                <Link to={"/register"} className="btn border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Register</Link>
+                                <Link to={"/login"} className="btn btn-sm border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Login</Link>
+                                <Link to={"/register"} className="btn btn-sm border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Register</Link>
                             </div>
                     }
 
                 </div>
             </nav>
+            <Tooltip id="my-tooltip" />
         </div>
 
     );

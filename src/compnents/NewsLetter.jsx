@@ -1,4 +1,5 @@
 import React from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 const NewsLetter = () => {
   return (
@@ -23,9 +24,20 @@ const NewsLetter = () => {
         </div>
 
         {/* Header */}
-        <h2 className="text-2xl font-bold text-gray-800">
+        {/* <h2 className="text-2xl font-bold text-gray-800">
           Get Updated with new Games
-        </h2>
+        </h2> */}
+        <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
+        <Typewriter
+            words={['Get Updated with new Games']}
+            loop={false}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+      </h1>
 
         {/* Subtext */}
         <p className="text-gray-600 max-w-md mt-2">

@@ -4,13 +4,8 @@ import { Navigate, useLocation } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
   const { loading, user } = useContext(AuthContext);
-  const {pathname} = useLocation()
-//   console.log(pathname);
-  
-
-  if (!user) {
-    return <Navigate to={"/login"} state={pathname}></Navigate>;
-  }
+  const { pathname } = useLocation();
+  //   console.log(pathname);
 
   if (loading) {
     return (
@@ -18,6 +13,10 @@ const PrivateRoute = ({ children }) => {
         <span className="loading loading-bars loading-lg"></span>
       </div>
     );
+  }
+
+  if (!user) {
+    return <Navigate to={"/login"} state={pathname}></Navigate>;
   }
 
   return <div>{children}</div>;

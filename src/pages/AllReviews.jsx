@@ -1,27 +1,88 @@
-import React, {  useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllReviews = () => {
-    const [allData, setAllData] = useState([]);
-   
+  const data = useLoaderData();
+  const [allData, setAllData] = useState(data);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/allReviews")
-      .then((res) => res.json())
-      .then((data) => {
-        setAllData(data);
-      });
-  }, []);
+  // handle sort
 
+  const handleSort = (status) => {
+    if (status === "rating") {
+      const sortedRatingWise = [...allData].sort((a, b) => b.rating - a.rating);
+      setAllData(sortedRatingWise);
+    }
+    if (status === "publishingYear") {
+      const sortedYearWise = [...allData].sort(
+        (a, b) => b.publishingYear - a.publishingYear
+      );
+      setAllData(sortedYearWise);
+    }
+  };
+
+  // handle filter
+
+  const handleFilter = (status) => {
+    if (status === "action") {
+      const filtered = data.filter((item) => item.genres === "action");
+      setAllData(filtered);
+    }
+    if (status === "adventure") {
+      const filtered = data.filter((item) => item.genres === "adventure");
+      setAllData(filtered);
+    }
+    if (status === "rpg") {
+      const filtered = data.filter((item) => item.genres === "rpg");
+      setAllData(filtered);
+    }
+    if (status === "all") {
+      setAllData(data);
+    }
+  };
 
   return (
     <div className="w-[90%] mx-auto py-14 md:py-28">
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
-       All Reviews
+        All Reviews
       </h1>
       <p className="text-center text-base md:text-xl mb-6 md:mb-14">
         Experience Gaming Excellence with the Highest Ratings.
       </p>
+      {/* drop down */}
+      <div className="flex justify-center md:justify-end items-center">
+        <details className="dropdown">
+          <summary className="btn m-1 btn-primary">Filter</summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <li>
+              <button onClick={() => handleFilter("all")}>All</button>
+            </li>
+            <li>
+              <button onClick={() => handleFilter("action")}>Action</button>
+            </li>
+            <li>
+              <button onClick={() => handleFilter("adventure")}>
+                Adventure
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleFilter("rpg")}>RPG</button>
+            </li>
+          </ul>
+        </details>
+        <details className="dropdown">
+          <summary className="btn m-1 btn-primary">Sort By</summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <li>
+              <button onClick={() => handleSort("rating")}>Rating</button>
+            </li>
+            <li>
+              <button onClick={() => handleSort("publishingYear")}>
+                Publishing Year
+              </button>
+            </li>
+          </ul>
+        </details>
+      </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 justify-center items-center">
         {allData ? (
           allData.map((datum) => (
@@ -37,9 +98,13 @@ const AllReviews = () => {
                 <h2 className="card-title">{datum.gameTitle}</h2>
                 <p>{datum.reviewDescription}</p>
                 <p>Rating: {datum.rating}</p>
+                <p>Publishing Year: {datum.publishingYear}</p>
+                <p>Type: {datum.genres}</p>
                 <div className="card-actions">
-                  <Link to={`/reviewDetails/${datum._id}`} 
-                    className="btn btn-sm btn-primary">
+                  <Link
+                    to={`/reviewDetails/${datum._id}`}
+                    className="btn btn-sm btn-primary"
+                  >
                     Explore Details
                   </Link>
                 </div>

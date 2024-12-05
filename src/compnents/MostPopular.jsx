@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 const MostPopular = () => {
   const [allData, setAllData] = useState([]);
@@ -13,7 +14,15 @@ const MostPopular = () => {
   return (
     <div className="w-[90%] mx-auto">
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
-        Most Popular Games
+        <Typewriter
+            words={['Most Popular Games']}
+            loop={false}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
       </h1>
       <p className="text-center text-base md:text-xl mb-6 md:mb-14">Trendsetters and Crowd-Pleasers—Explore the Games Everyone’s Talking About.</p>
       <div className="overflow-x-auto">

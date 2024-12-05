@@ -7,6 +7,10 @@ import LogIn from "../pages/LogIn";
 import PrivateRoute from "./PrivateRoute";
 import AllReviews from "../pages/AllReviews";
 import ReviewDetails from "../pages/ReviewDetails";
+import MyReviews from "../pages/MyReviews";
+import UpdateReview from "../pages/UpdateReview";
+import ErrorPage from "../pages/ErrorPage";
+import GameWatchList from "../pages/GameWatchList";
 
 const router = createBrowserRouter([
   {
@@ -20,10 +24,16 @@ const router = createBrowserRouter([
       {
         path: "/allReviews",
         element: <AllReviews></AllReviews>,
+        loader: ()=> fetch("http://localhost:5000/allReviews")
       },
       {
         path: "/reviewDetails/:id",
         element: <ReviewDetails></ReviewDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/allReviews/${params.id}`)
+      },
+      {
+        path: "/updateReview/:id",
+        element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/allReviews/${params.id}`)
       },
       {
@@ -35,6 +45,24 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/MyReviews/:email",
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
+        loader: ({params})=> fetch(`http://localhost:5000/MyReviews/${params.email}`)
+      },
+      {
+        path: "/gameWatchList/:email",
+        element: (
+          <PrivateRoute>
+            <GameWatchList></GameWatchList>
+          </PrivateRoute>
+        ),
+        loader: ({params})=> fetch(`http://localhost:5000/gameWatchList/${params.email}`)
+      },
+      {
         path: "/register",
         element: <Register></Register>,
       },
@@ -44,6 +72,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"*",
+    element: <ErrorPage></ErrorPage>
+  }
 ]);
 
 export default router;

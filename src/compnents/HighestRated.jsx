@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 const HighestRated = () => {
   const [allData, setAllData] = useState([]);
@@ -14,7 +15,15 @@ const HighestRated = () => {
   return (
     <div className="w-[90%] mx-auto py-14 md:py-28">
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
-        Highest Rated Games
+      <Typewriter
+            words={['Highest Rated Games']}
+            loop={false}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
       </h1>
       <p className="text-center text-base md:text-xl mb-6 md:mb-14">
         Experience Gaming Excellence with the Highest Ratings.

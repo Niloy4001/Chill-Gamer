@@ -5,6 +5,8 @@ const AllReviews = () => {
   const data = useLoaderData();
   const [allData, setAllData] = useState(data);
 
+
+
   // handle sort
 
   const handleSort = (status) => {
@@ -19,6 +21,8 @@ const AllReviews = () => {
       setAllData(sortedYearWise);
     }
   };
+
+
 
   // handle filter
 
@@ -40,6 +44,8 @@ const AllReviews = () => {
     }
   };
 
+
+  
   return (
     <div className="w-[90%] mx-auto py-14 md:py-28">
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">

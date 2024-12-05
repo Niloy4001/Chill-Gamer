@@ -4,7 +4,8 @@ const Footer = () => {
     return (
 
         
-        <div className='bg-blue-500 text-white' id='footer'>
+        // <div className='bg-blue-500 text-white' id='footer'>
+        <div className='bg-[#0B0223] text-white' id='footer'>
             <div className='w-[90%] mx-auto'>
                 <section className="footer  p-10 ">
                     <nav>

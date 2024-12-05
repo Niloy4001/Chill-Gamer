@@ -1,6 +1,15 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import slider1 from '../assets/slider1.png'
+import slider2 from '../assets/slider2.png'
+import slider3 from '../assets/slider3.png'
+import slider4 from '../assets/slider4.png'
+import slider5 from '../assets/slider5.png'
+import slider6 from '../assets/slider6.png'
+import slider7 from '../assets/slider7.png'
+import slider8 from '../assets/slider8.png'
+import slider9 from '../assets/slider9.png'
 
 const Slider = () => {
   const responsive = {
@@ -19,15 +28,16 @@ const Slider = () => {
   };
 
   const images = [
-    "https://i.ibb.co.com/Mp4yngP/slider1.png",
-    "https://i.ibb.co.com/kDhyr7r/slider2.png",
-    "https://i.ibb.co.com/rpWk3RV/slider3.png",
-    "https://i.ibb.co.com/YDrsYG7/slider4.png",
-    "https://i.ibb.co.com/fFGbyTH/slider5.png",
-    "https://i.ibb.co.com/bgPfRMZ/slider6.png",
-    "https://i.ibb.co.com/1rfwkv9/slider7.png",
-    "https://i.ibb.co.com/tQzLq46/slider9.png",
-    "https://i.ibb.co.com/G54MjYW/slider8.png",
+    // "https://i.ibb.co.com/KVBNt1D/slider1.png",
+    // "https://i.ibb.co.com/yXfJKNj/slider3.png",
+    // "https://i.ibb.co.com/Mp2tVqC/slider5.png",
+    // "https://i.ibb.co.com/L8yfpVG/slider6.png",
+    // "https://i.ibb.co.com/6bxwC9d/slider2.png",
+    // "https://i.ibb.co.com/251DhWm/slider7.png",
+    // "https://i.ibb.co.com/MpMrmZ4/slider8.png",
+    // "https://i.ibb.co.com/DL5ZS79/slider9.png",
+    // "https://i.ibb.co.com/r68DXVz/slider4.png",
+    slider1,slider2,slider3,slider4,slider5,slider6,slider7,slider8,slider9
   ];
 
   return (

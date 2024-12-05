@@ -67,8 +67,8 @@ const LogIn = () => {
                     <div className='w-full px-8'>
                         <button
                             onClick={handleGoogleLogIn}
-                            className="btn text-[10px] md:text-sm border border-solid border-blue-500 hover:text-white hover:bg-blue-700 w-full flex items-center justify-center space-x-2 mb-2">
-                            <FaGoogle className="text-blue-500 " />
+                            className="btn text-[10px] md:text-sm border border-solid border-[#8758f1] hover:text-white hover:bg-gradient-to-b from-[#f948b2] to-[#8758f1] w-full flex items-center justify-center space-x-2 mb-2">
+                            <FaGoogle className="text-[#8758f1] " />
                             <span>Login with Google</span>
                         </button>
                     </div>
@@ -101,7 +101,7 @@ const LogIn = () => {
                             </span>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-blue-500 text-white hover:bg-blue-700">Login</button>
+                            <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">Login</button>
                         </div>
                         <div>
                             <p className='text-left text-red-600'>{errorMessage && errorMessage} </p>

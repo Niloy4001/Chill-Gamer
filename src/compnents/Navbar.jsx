@@ -16,7 +16,8 @@ const Navbar = () => {
         navigate("/")
     }
     return (
-        <div className="bg-blue-500 text-white ">
+        // <div className="bg-blue-500 text-white ">
+        <div className="bg-gradient-to-b from-[#f948b2] to-[#8758f1] text-white ">
             <nav className="w-[90%] mx-auto py-6">
                 {/* Row 1: Welcome Message */}
                 {/* <div className="text-center py-2">
@@ -32,7 +33,7 @@ const Navbar = () => {
                     <div
                         onClick={() => setOpen(!open)}
                         className='block lg:hidden pb-2'>
-                        <button className="px-4 py-2 bg-blue-700 rounded">
+                        <button className="btn btn-xs shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded">
                             {
                                 open ? <IoClose /> : <IoMenu />
                             }
@@ -64,14 +65,14 @@ const Navbar = () => {
                                 </button>
                                 <button to={"/login"}
                                     onClick={handleLogOut}
-                                    className="btn btn-sm border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Log Out
+                                    className="btn btn-sm border-none shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded">Log Out
                                 </button>
                             </div>
                             :
 
                             <div className="auth flex items-center gap-2">
-                                <Link to={"/login"} className="btn btn-sm border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Login</Link>
-                                <Link to={"/register"} className="btn btn-sm border-none hover:bg-blue-700 text-white bg-blue-700 rounded">Register</Link>
+                                <Link to={"/login"} className="btn btn-sm border-none shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded">Login</Link>
+                                <Link to={"/register"} className="btn btn-sm border-none shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded">Register</Link>
                             </div>
                     }
 

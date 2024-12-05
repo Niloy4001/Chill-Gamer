@@ -6,7 +6,7 @@ const HighestRated = () => {
   const [allData, setAllData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://chill-gamer-server-kappa.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         setAllData(data);
@@ -15,21 +15,21 @@ const HighestRated = () => {
   return (
     <div className="w-[90%] mx-auto py-14 md:py-28">
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
-      <Typewriter
-            words={['Highest Rated Games']}
-            loop={false}
-            cursor
-            cursorStyle='_'
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-          />
+        <Typewriter
+          words={["Highest Rated Games"]}
+          loop={false}
+          cursor
+          cursorStyle="_"
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={1000}
+        />
       </h1>
       <p className="text-center text-base md:text-xl mb-6 md:mb-14">
         Experience Gaming Excellence with the Highest Ratings.
       </p>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 justify-center items-center">
-        {allData ? (
+        {allData.length > 0 ? (
           allData.map((datum) => (
             <div key={datum._id} className="card bg-base-100  shadow-xl">
               <figure className="px-10 pt-10">
@@ -46,7 +46,7 @@ const HighestRated = () => {
                 <div className="card-actions">
                   <Link
                     to={`/reviewDetails/${datum._id}`}
-                    className="btn btn-sm btn-primary"
+                    className="btn btn-sm shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]"
                   >
                     Explore Details
                   </Link>

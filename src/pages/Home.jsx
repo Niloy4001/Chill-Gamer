@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Slider></Slider>
-      <div className="fixed bottom-[5%] z-10 left-0 bg-gray-500 py-1 w-20 pr-2 flex justify-end rounded-r-full">
+      <div className="fixed bottom-[5%] z-10 left-0 shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] py-1 w-20 pr-2 flex justify-end rounded-r-full">
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
           <input type="checkbox" className="theme-controller" value="dark" />

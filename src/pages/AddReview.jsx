@@ -38,7 +38,7 @@ const AddReview = () => {
       userEmail,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://chill-gamer-server-kappa.vercel.app/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -166,7 +166,7 @@ const AddReview = () => {
 
           {/* Submit Button */}
           <div>
-            <button type="submit" className="btn w-full bg-blue-500">
+            <button type="submit" className="btn w-full shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">
               Submit Review
             </button>
           </div>

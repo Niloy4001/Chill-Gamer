@@ -5,7 +5,7 @@ const MostPopular = () => {
   const [allData, setAllData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allReviews")
+    fetch("https://chill-gamer-server-kappa.vercel.app/allReviews")
       .then((res) => res.json())
       .then((data) => {
         setAllData(data);
@@ -39,7 +39,7 @@ const MostPopular = () => {
           </thead>
           <tbody>
             {/* row  */}
-            {allData ? allData.map((datum, idx) => (
+            {allData.length > 0 ? allData.map((datum, idx) => (
               <tr className="hover" key={datum._id}>
                 <th>{idx + 1}</th>
                 <td>{datum.gameTitle} </td>

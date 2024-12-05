@@ -28,7 +28,7 @@ const ReviewDetails = () => {
 
     console.log(info);
 
-    fetch("http://localhost:5000/addToWatchList", {
+    fetch("https://chill-gamer-server-kappa.vercel.app/addToWatchList", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

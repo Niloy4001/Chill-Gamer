@@ -7,20 +7,22 @@ const NewsLetter = () => {
       <div className=" py-12 flex flex-col items-center text-center">
         {/* Icon */}
         <div className="mb-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="teal"
-            className="w-10 h-10"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 8l8.229 5.486a2 2 0 002.542 0L22 8m-19 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z"
-            />
-          </svg>
+          <div className="w-12 h-12 flex items-center justify-center shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="white"
+              className="w-10 h-10"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 8l8.229 5.486a2 2 0 002.542 0L22 8m-19 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
         </div>
 
         {/* Header */}
@@ -28,20 +30,20 @@ const NewsLetter = () => {
           Get Updated with new Games
         </h2> */}
         <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
-        <Typewriter
-            words={['Get Updated with new Games']}
+          <Typewriter
+            words={["Get Updated with new Games"]}
             loop={false}
             cursor
-            cursorStyle='_'
+            cursorStyle="_"
             typeSpeed={70}
             deleteSpeed={50}
             delaySpeed={1000}
           />
-      </h1>
+        </h1>
 
         {/* Subtext */}
         <p className="text-gray-600 max-w-md mt-2">
-        Stay Ahead with the Latest Additions to the Gaming Universe.
+          Stay Ahead with the Latest Additions to the Gaming Universe.
         </p>
 
         {/* Input and Button */}
@@ -69,7 +71,7 @@ const NewsLetter = () => {
               </svg>
             </span>
           </div>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white rounded-md py-2 px-6 ">
+          <button className="shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded-md py-2 px-6 ">
             Subscribe
           </button>
         </div>

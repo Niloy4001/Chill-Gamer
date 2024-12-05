@@ -56,7 +56,7 @@ const UpdateReview = () => {
           userEmail,
         };
     
-        fetch(`http://localhost:5000/updateReview/${_id}`, {
+        fetch(`https://chill-gamer-server-kappa.vercel.app/updateReview/${_id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

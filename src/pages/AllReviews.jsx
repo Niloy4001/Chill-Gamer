@@ -45,7 +45,7 @@ const AllReviews = () => {
   };
 
 
-  
+
   return (
     <div className="w-[90%] mx-auto py-14 md:py-28">
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
@@ -57,7 +57,7 @@ const AllReviews = () => {
       {/* drop down */}
       <div className="flex justify-center md:justify-end items-center">
         <details className="dropdown">
-          <summary className="btn m-1 btn-primary">Filter</summary>
+          <summary className="btn m-1 shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">Filter</summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
             <li>
               <button onClick={() => handleFilter("all")}>All</button>
@@ -76,7 +76,7 @@ const AllReviews = () => {
           </ul>
         </details>
         <details className="dropdown">
-          <summary className="btn m-1 btn-primary">Sort By</summary>
+          <summary className="btn m-1 shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">Sort By</summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
             <li>
               <button onClick={() => handleSort("rating")}>Rating</button>
@@ -109,7 +109,7 @@ const AllReviews = () => {
                 <div className="card-actions">
                   <Link
                     to={`/reviewDetails/${datum._id}`}
-                    className="btn btn-sm btn-primary"
+                    className="btn btn-sm shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]"
                   >
                     Explore Details
                   </Link>

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import React, { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const GameWatchList = () => {
-    const data = useLoaderData()
-    const [watchList, setWatchList] = useState(data);
-    console.log(data);
-    
+  const data = useLoaderData();
+  const [watchList, setWatchList] = useState(data);
+  console.log(data);
+
   return (
     <div className="w-[90%] mx-auto py-11 md:py-28">
       <h1 className="text-3xl md:text-5xl font-medium font-sans text-center py-7">
@@ -35,17 +35,7 @@ const GameWatchList = () => {
                   <td>{datum.gameTitle} </td>
                   <td>{datum.reviewDescription} </td>
                   <td>{datum.genres} </td>
-                  {/* <td className="flex items-center gap-2">
-                    <Link to={`/updateReview/${datum._id}`} className="btn btn-sm">
-                      <AiFillEdit />
-                    </Link>
-                    <span
-                    //   onClick={() => handleDelete(datum._id)}
-                      className="btn btn-sm"
-                    >
-                      <MdDelete />
-                    </span>
-                  </td> */}
+
                   <td>{datum.rating}</td>
                 </tr>
               ))
@@ -58,7 +48,7 @@ const GameWatchList = () => {
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GameWatchList
+export default GameWatchList;

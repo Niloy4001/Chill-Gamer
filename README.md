@@ -1,8 +1,14 @@
-# React + Vite
+# Chill Gamer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Chill Gamer** is a user-friendly game review application. The goal of this project is to design a platform where users can explore and share game reviews. *(This is the client-side repository.)*
 
-Currently, two official plugins are available:
+## Live URL
+[https://chill-gamer-40.netlify.app/](https://chill-gamer-40.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features of This Web Application
+- User Registration, Login, and Authentication using Firebase.
+- Users can view all reviews added by other users.
+- Each individual user can add game reviews.
+- Users can view, edit, and delete their own reviews.
+- Users cannot access, edit, or delete reviews added by others.
+- All reviews are stored in a MongoDB database.

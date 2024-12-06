@@ -89,7 +89,7 @@ const AddReview = () => {
           <div className="form-control">
             <label htmlFor="reviewDescription">Review Description:</label>
             <textarea
-              className="textarea border border-solid border-gray-400 text-black"
+              className="textarea border border-solid bg-white text-black"
               id="reviewDescription"
               name="reviewDescription"
               placeholder="Write your detailed review"

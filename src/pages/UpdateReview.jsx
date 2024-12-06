@@ -1,81 +1,86 @@
-import React, { useContext } from 'react'
-import { useLoaderData } from 'react-router-dom'
-import { AuthContext } from '../context/AuthProvider'
-import Swal from 'sweetalert2'
+import React, { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const UpdateReview = () => {
+  // {
+  //     "_id": "67508c0b6347b8e29bda0c50",
+  //     "gameCover": "https://i.ibb.co/JCMGp0M/Zombie-Invasion.jpg",
+  //     "gameTitle": "Zombie Invasion",
+  //     "reviewDescription": "A survival horror game with intense gameplay and a gripping story.",
+  //     "rating": "4",
+  //     "publishingYear": "2021",
+  //     "genres": "action",
+  //     "userName": "Niloy",
+  //     "userEmail": "niloy@gmail.com"
+  // }
 
+  const { user } = useContext(AuthContext);
+  const data = useLoaderData();
+  const {
+    gameCover,
+    gameTitle,
+    reviewDescription,
+    rating,
+    publishingYear,
+    genres,
+    userName,
+    userEmail,
+    _id,
+  } = data;
 
-    // {
-    //     "_id": "67508c0b6347b8e29bda0c50",
-    //     "gameCover": "https://i.ibb.co/JCMGp0M/Zombie-Invasion.jpg",
-    //     "gameTitle": "Zombie Invasion",
-    //     "reviewDescription": "A survival horror game with intense gameplay and a gripping story.",
-    //     "rating": "4",
-    //     "publishingYear": "2021",
-    //     "genres": "action",
-    //     "userName": "Niloy",
-    //     "userEmail": "niloy@gmail.com"
-    // }
+  // console.log(data);
+  const notify = () => {
+    Swal.fire({
+      title: "Successfully Updated your review",
+      confirmButtonColor: "green",
+      icon: "success",
+    });
+  };
+  const handleUpdateReview = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const gameCover = form.gameCover.value;
+    const gameTitle = form.gameTitle.value;
+    const reviewDescription = form.reviewDescription.value;
+    const rating = form.rating.value;
+    const publishingYear = form.publishingYear.value;
+    const genres = form.genres.value;
+    const userName = form.userName.value;
+    const userEmail = form.userEmail.value;
 
+    const review = {
+      gameCover,
+      gameTitle,
+      reviewDescription,
+      rating,
+      publishingYear,
+      genres,
+      userName,
+      userEmail,
+    };
 
+    fetch(`https://chill-gamer-server-kappa.vercel.app/updateReview/${_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount === 1) {
+          notify();
+        }
+        console.log(data);
+      });
+  };
 
-    const {user} = useContext(AuthContext)
-    const data = useLoaderData()
-    const {gameCover,gameTitle,reviewDescription,rating,publishingYear,genres,userName,userEmail,_id} = data
-
-
-    // console.log(data);
-    const notify = () => {
-        Swal.fire({
-          title: "Successfully Updated your review",
-          confirmButtonColor: "green",
-          icon: "success",
-        });
-      };
-      const handleUpdateReview = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const gameCover = form.gameCover.value;
-        const gameTitle = form.gameTitle.value;
-        const reviewDescription = form.reviewDescription.value;
-        const rating = form.rating.value;
-        const publishingYear = form.publishingYear.value;
-        const genres = form.genres.value;
-        const userName = form.userName.value;
-        const userEmail = form.userEmail.value;
-    
-        const review = {
-          gameCover,
-          gameTitle,
-          reviewDescription,
-          rating,
-          publishingYear,
-          genres,
-          userName,
-          userEmail,
-        };
-    
-        fetch(`https://chill-gamer-server-kappa.vercel.app/updateReview/${_id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(review),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.modifiedCount === 1) {
-              notify();
-            }
-            console.log(data);
-          });
-      };
-    
   return (
     <div>
       <h1 className="text-5xl font-medium font-sans text-center py-7">
-       Update Review
+        Update Review
       </h1>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
         <form className="card-body space-y-3" onSubmit={handleUpdateReview}>
@@ -83,7 +88,7 @@ const UpdateReview = () => {
           <div className="form-control">
             <label htmlFor="gameCover">Game Cover Image/Thumbnail:</label>
             <input
-                defaultValue={gameCover}
+              defaultValue={gameCover}
               className="input border border-solid border-gray-400"
               type="url"
               id="gameCover"
@@ -97,7 +102,7 @@ const UpdateReview = () => {
           <div className="form-control">
             <label htmlFor="gameTitle">Game Title/Name:</label>
             <input
-            defaultValue={gameTitle}
+              defaultValue={gameTitle}
               className="input border border-solid border-gray-400"
               type="text"
               id="gameTitle"
@@ -111,7 +116,7 @@ const UpdateReview = () => {
           <div className="form-control">
             <label htmlFor="reviewDescription">Review Description:</label>
             <textarea
-            defaultValue={reviewDescription}
+              defaultValue={reviewDescription}
               className="textarea border border-solid border-gray-400"
               id="reviewDescription"
               name="reviewDescription"
@@ -124,7 +129,7 @@ const UpdateReview = () => {
           <div className="form-control">
             <label htmlFor="rating">Rating (1-5):</label>
             <input
-            defaultValue={rating}
+              defaultValue={rating}
               className="input border border-solid border-gray-400"
               type="number"
               id="rating"
@@ -140,7 +145,7 @@ const UpdateReview = () => {
           <div className="form-control">
             <label htmlFor="publishingYear">Publishing Year:</label>
             <input
-            defaultValue={publishingYear}
+              defaultValue={publishingYear}
               className="input border border-solid border-gray-400"
               type="number"
               id="publishingYear"
@@ -173,7 +178,7 @@ const UpdateReview = () => {
               readOnly
             />
           </div>
-          
+
           {/* User Email (Read Only) */}
           <div className="form-control">
             <label htmlFor="userEmail">User Email:</label>
@@ -189,14 +194,17 @@ const UpdateReview = () => {
 
           {/* Submit Button */}
           <div>
-            <button type="submit" className="btn w-full bg-blue-500">
+            <button
+              type="submit"
+              className="btn w-full shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]"
+            >
               Update Review
             </button>
           </div>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UpdateReview
+export default UpdateReview;

@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 const GameWatchList = () => {
   const data = useLoaderData();
   const [watchList, setWatchList] = useState(data);
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="w-[90%] mx-auto py-11 md:py-28">
@@ -40,9 +40,9 @@ const GameWatchList = () => {
                 </tr>
               ))
             ) : (
-              <p className="text-4xl text-red-400 text-center">
+              <span className="text-2xl md:text-4xl text-red-400 text-center">
                 Still No review added to watchList by yourself
-              </p>
+              </span>
             )}
           </tbody>
         </table>

@@ -7,7 +7,27 @@ import Swal from "sweetalert2";
 const ReviewDetails = () => {
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
+  const {
+    gameCover,
+    gameTitle,
+    reviewDescription,
+    rating,
+    publishingYear,
+    genres,
+    userName,
+    userEmail,
+  } = data;
 
+  const info = {
+    gameCover,
+    gameTitle,
+    reviewDescription,
+    rating,
+    publishingYear,
+    genres,
+    userName,
+    userEmail,
+  };
 
   const notify = () => {
     Swal.fire({
@@ -80,8 +100,8 @@ const ReviewDetails = () => {
           <div>
             {user && (
               <button
-                onClick={() => handleAddToWatchList(data)}
-                className="btn btn-sm btn-primary mt-4"
+                onClick={() => handleAddToWatchList(info)}
+                className="btn btn-sm shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] mt-4"
               >
                 Add to WatchList
               </button>

@@ -17,7 +17,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
   // login or register by google
   const logInByGoogle = () => {
     return signInWithPopup(auth, googleProvider);
@@ -38,30 +37,29 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-
-//   update user profile
-const manageProfile = (name, photo)=>{
+  //   update user profile
+  const manageProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
-        displayName: name, photoURL: photo
-      })
-}
+      displayName: name,
+      photoURL: photo,
+    });
+  };
 
   //   Get the current sign in user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        setUser(currentUser) 
+        setUser(currentUser);
         // console.log(currentUser);
-              
       } else {
-        setUser(null)
+        setUser(null);
       }
-      setLoading(false)
+      setLoading(false);
     });
 
-    return ()=>{
-        unsubscribe();
-    }
+    return () => {
+      unsubscribe();
+    };
   }, []);
   const info = {
     user,

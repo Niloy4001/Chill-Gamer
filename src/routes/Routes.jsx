@@ -24,17 +24,28 @@ const router = createBrowserRouter([
       {
         path: "/allReviews",
         element: <AllReviews></AllReviews>,
-        loader: ()=> fetch("https://chill-gamer-server-kappa.vercel.app/allReviews")
+        loader: () =>
+          fetch("https://chill-gamer-server-kappa.vercel.app/allReviews"),
       },
       {
         path: "/reviewDetails/:id",
         element: <ReviewDetails></ReviewDetails>,
-        loader: ({params})=> fetch(`https://chill-gamer-server-kappa.vercel.app/allReviews/${params.id}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://chill-gamer-server-kappa.vercel.app/allReviews/${params.id}`
+          ),
       },
       {
         path: "/updateReview/:id",
-        element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
-        loader: ({params})=> fetch(`https://chill-gamer-server-kappa.vercel.app/allReviews/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <UpdateReview></UpdateReview>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://chill-gamer-server-kappa.vercel.app/allReviews/${params.id}`
+          ),
       },
       {
         path: "/addReview",
@@ -51,7 +62,10 @@ const router = createBrowserRouter([
             <MyReviews></MyReviews>
           </PrivateRoute>
         ),
-        loader: ({params})=> fetch(`https://chill-gamer-server-kappa.vercel.app/MyReviews/${params.email}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://chill-gamer-server-kappa.vercel.app/MyReviews/${params.email}`
+          ),
       },
       {
         path: "/gameWatchList/:email",
@@ -60,7 +74,10 @@ const router = createBrowserRouter([
             <GameWatchList></GameWatchList>
           </PrivateRoute>
         ),
-        loader: ({params})=> fetch(`https://chill-gamer-server-kappa.vercel.app/gameWatchList/${params.email}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://chill-gamer-server-kappa.vercel.app/gameWatchList/${params.email}`
+          ),
       },
       {
         path: "/register",
@@ -73,9 +90,9 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path:"*",
-    element: <ErrorPage></ErrorPage>
-  }
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);
 
 export default router;

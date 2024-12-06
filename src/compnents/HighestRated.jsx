@@ -55,7 +55,7 @@ const HighestRated = () => {
             </div>
           ))
         ) : (
-          <p className="text-4xl text-red-400 text-center">
+          <p className="text-2xl md:text-4xl text-red-400 text-center">
             No data in database
           </p>
         )}

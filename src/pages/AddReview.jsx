@@ -3,10 +3,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthProvider";
 
 const AddReview = () => {
-
-  const {user} = useContext(AuthContext)
- 
-  
+  const { user } = useContext(AuthContext);
 
   const notify = () => {
     Swal.fire({
@@ -55,17 +52,18 @@ const AddReview = () => {
       });
   };
   return (
-    <div>
+    <div className="w-[90%] mx-auto pb-11">
       <h1 className="text-5xl font-medium font-sans text-center py-7">
         Add Review
       </h1>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
+      {/* <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto"> */}
+      <div className="card bg-gradient-to-r text-white from-[#f948b2] to-[#8758f1] w-full lg:w-[70%] shrink-0 shadow-2xl mx-auto">
         <form className="card-body space-y-3" onSubmit={handleSubmitReview}>
           {/* Game Cover Image/Thumbnail */}
           <div className="form-control">
             <label htmlFor="gameCover">Game Cover Image/Thumbnail:</label>
             <input
-              className="input border border-solid border-gray-400"
+              className="py-2 bg-white border-b outline-none border-solid border-gray-400 px-2 rounded-md text-black"
               type="url"
               id="gameCover"
               name="gameCover"
@@ -78,7 +76,7 @@ const AddReview = () => {
           <div className="form-control">
             <label htmlFor="gameTitle">Game Title/Name:</label>
             <input
-              className="input border border-solid border-gray-400"
+              className="py-2 bg-white border-b outline-none border-solid border-gray-400 px-2 rounded-md text-black"
               type="text"
               id="gameTitle"
               name="gameTitle"
@@ -91,7 +89,7 @@ const AddReview = () => {
           <div className="form-control">
             <label htmlFor="reviewDescription">Review Description:</label>
             <textarea
-              className="textarea border border-solid border-gray-400"
+              className="textarea border border-solid border-gray-400 text-black"
               id="reviewDescription"
               name="reviewDescription"
               placeholder="Write your detailed review"
@@ -103,7 +101,7 @@ const AddReview = () => {
           <div className="form-control">
             <label htmlFor="rating">Rating (1-5):</label>
             <input
-              className="input border border-solid border-gray-400"
+              className="py-2 bg-white border-b outline-none border-solid border-gray-400 px-2 rounded-md text-black"
               type="number"
               id="rating"
               name="rating"
@@ -118,7 +116,7 @@ const AddReview = () => {
           <div className="form-control">
             <label htmlFor="publishingYear">Publishing Year:</label>
             <input
-              className="input border border-solid border-gray-400"
+              className="py-2 bg-white border-b outline-none border-solid border-gray-400 px-2 rounded-md text-black"
               type="number"
               id="publishingYear"
               name="publishingYear"
@@ -130,7 +128,12 @@ const AddReview = () => {
           {/* Genres */}
           <div className="form-control">
             <label htmlFor="genres">Genres:</label>
-            <select id="genres" name="genres" required>
+            <select
+              id="genres"
+              name="genres"
+              className="py-2 bg-white border-b outline-none border-solid border-gray-400 px-2 rounded-md  text-black"
+              required
+            >
               <option value="">Select a genre</option>
               <option value="action">Action</option>
               <option value="rpg">RPG</option>
@@ -142,7 +145,7 @@ const AddReview = () => {
           <div className="form-control">
             <label htmlFor="userEmail">User Name:</label>
             <input
-              className="input border border-solid border-gray-400"
+              className="py-2 bg-white border-b outline-none border-solid border-gray-400 px-2 rounded-md  text-black"
               type="text"
               id="userName"
               name="userName"
@@ -150,12 +153,12 @@ const AddReview = () => {
               readOnly
             />
           </div>
-          
+
           {/* User Email (Read Only) */}
           <div className="form-control">
             <label htmlFor="userEmail">User Email:</label>
             <input
-              className="input border border-solid border-gray-400"
+              className="py-2 bg-white border-b outline-none border-solid border-gray-400 px-2 rounded-md  text-black"
               type="email"
               id="userEmail"
               name="userEmail"
@@ -166,7 +169,10 @@ const AddReview = () => {
 
           {/* Submit Button */}
           <div>
-            <button type="submit" className="btn w-full shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">
+            <button
+              type="submit"
+              className="btn w-full shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]"
+            >
               Submit Review
             </button>
           </div>

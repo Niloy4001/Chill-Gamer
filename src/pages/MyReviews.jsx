@@ -27,8 +27,8 @@ const MyReviews = () => {
           .then((resul) => {
             console.log(resul);
             if (resul.deletedCount === 1) {
-                const remaining = reviews.filter(item => item._id != id)
-                setReviews(remaining)
+              const remaining = reviews.filter((item) => item._id != id);
+              setReviews(remaining);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your review has been deleted.",
@@ -70,7 +70,10 @@ const MyReviews = () => {
                   <td>{datum.reviewDescription} </td>
                   <td>{datum.genres} </td>
                   <td className="flex items-center gap-2">
-                    <Link to={`/updateReview/${datum._id}`} className="btn btn-sm">
+                    <Link
+                      to={`/updateReview/${datum._id}`}
+                      className="btn btn-sm"
+                    >
                       <AiFillEdit />
                     </Link>
                     <span
@@ -83,7 +86,7 @@ const MyReviews = () => {
                 </tr>
               ))
             ) : (
-              <p className="text-4xl text-red-400 text-center">
+              <p className="text-2xl md:text-4xl text-red-400 text-center">
                 Still No review added by yourself
               </p>
             )}

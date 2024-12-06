@@ -39,7 +39,6 @@ const LogIn = () => {
         navigate(state ? `${state}` : "/");
       })
       .catch((err) => setErrorMessage(err.message));
-    // console.log(email, password);
   };
 
   // handle forgot

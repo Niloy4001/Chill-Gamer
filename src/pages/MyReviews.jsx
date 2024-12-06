@@ -6,10 +6,8 @@ import Swal from "sweetalert2";
 const MyReviews = () => {
   const data = useLoaderData();
   const [reviews, setReviews] = useState(data);
-  //   console.log(reviews);
 
   const handleDelete = (id) => {
-    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -25,7 +23,6 @@ const MyReviews = () => {
         })
           .then((res) => res.json())
           .then((resul) => {
-            console.log(resul);
             if (resul.deletedCount === 1) {
               const remaining = reviews.filter((item) => item._id != id);
               setReviews(remaining);

@@ -44,10 +44,6 @@ const ReviewDetails = () => {
     info.loggedInUserName = currentName;
     info.loggedInUserEmail = currentEmail;
 
-    // console.log(currentEmail,currentName);
-
-    console.log(info);
-
     fetch("https://chill-gamer-server-kappa.vercel.app/addToWatchList", {
       method: "POST",
       headers: {
@@ -60,7 +56,6 @@ const ReviewDetails = () => {
         if (data.acknowledged) {
           notify();
         }
-        console.log(data);
       });
   };
 

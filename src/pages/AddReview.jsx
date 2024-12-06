@@ -48,7 +48,6 @@ const AddReview = () => {
           notify();
           form.reset();
         }
-        console.log(data);
       });
   };
   return (

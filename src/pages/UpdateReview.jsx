@@ -30,7 +30,6 @@ const UpdateReview = () => {
     _id,
   } = data;
 
-  // console.log(data);
   const notify = () => {
     Swal.fire({
       title: "Successfully Updated your review",
@@ -73,7 +72,6 @@ const UpdateReview = () => {
         if (data.modifiedCount === 1) {
           notify();
         }
-        console.log(data);
       });
   };
 

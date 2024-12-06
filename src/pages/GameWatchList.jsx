@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 const GameWatchList = () => {
   const data = useLoaderData();
   const [watchList, setWatchList] = useState(data);
-  // console.log(data);
+  
 
   return (
     <div className="w-[90%] mx-auto py-11 md:py-28">

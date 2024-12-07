@@ -7,4 +7,4 @@ const getFromLs = () =>{
     }
 }
 
-export {getFromLs} ;
+export default getFromLs ;

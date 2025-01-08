@@ -17,6 +17,7 @@ const Footer = () => {
             <Link to={"/addReview"} className="link link-hover">
               Add review
             </Link>
+            
             <Link
               to={`/MyReviews/:${user && user.email}`}
               className="link link-hover"

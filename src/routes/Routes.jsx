@@ -11,6 +11,8 @@ import MyReviews from "../pages/MyReviews";
 import UpdateReview from "../pages/UpdateReview";
 import ErrorPage from "../pages/ErrorPage";
 import GameWatchList from "../pages/GameWatchList";
+import Contact from "../pages/Contact";
+import BlogsDetails from "../pages/BlogsDetails";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/allReviews",
@@ -33,6 +39,14 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(
             `https://chill-gamer-server-kappa.vercel.app/allReviews/${params.id}`
+          ),
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogsDetails></BlogsDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://chill-gamer-server-kappa.vercel.app/blog/${params.id}`
           ),
       },
       {

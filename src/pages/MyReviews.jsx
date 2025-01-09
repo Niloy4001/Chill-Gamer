@@ -45,7 +45,10 @@ const MyReviews = () => {
       <p className="text-center text-base md:text-xl mb-6 md:mb-14">
         Here are all reviews submitted by you.
       </p>
-      <div className="overflow-x-auto">
+      {
+        reviews.length > 0 ?
+         <>
+         <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
@@ -59,7 +62,7 @@ const MyReviews = () => {
           </thead>
           <tbody>
             {/* row  */}
-            {reviews.length > 0 ? (
+            {reviews.length > 0 && (
               reviews.map((datum, idx) => (
                 <tr className="hover" key={datum._id}>
                   <th>{idx + 1}</th>
@@ -82,14 +85,16 @@ const MyReviews = () => {
                   </td>
                 </tr>
               ))
-            ) : (
-              <p className="text-2xl md:text-4xl text-red-400 text-center">
-                Still No review added by yourself
-              </p>
-            )}
+            ) }
           </tbody>
         </table>
       </div>
+         </>
+         :
+         <>
+         <h1 className="text-xl md:text-3xl text-center font-medium text-red-500">Still No Review Added by you</h1>
+         </>
+      }
     </div>
   );
 };

@@ -14,7 +14,10 @@ const GameWatchList = () => {
       <p className="text-center text-base md:text-xl mb-6 md:mb-14">
         Here are all reviews added to watchList by you.
       </p>
-      <div className="overflow-x-auto">
+      {
+        watchList.length> 0 ? 
+        <>
+        <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
@@ -28,7 +31,7 @@ const GameWatchList = () => {
           </thead>
           <tbody>
             {/* row  */}
-            {watchList.length > 0 ? (
+            {watchList.length > 0 && (
               watchList.map((datum, idx) => (
                 <tr className="hover" key={datum._id}>
                   <th>{idx + 1}</th>
@@ -39,14 +42,16 @@ const GameWatchList = () => {
                   <td>{datum.rating}</td>
                 </tr>
               ))
-            ) : (
-              <span className="text-2xl md:text-4xl text-red-400 text-center">
-                Still No review added to watchList by yourself
-              </span>
-            )}
+            ) }
           </tbody>
         </table>
       </div>
+        </>
+        :
+        <>
+        <h1 className="text-xl md:text-3xl text-center font-medium text-red-500">No games added in your WatchList</h1>
+        </>
+      }
     </div>
   );
 };

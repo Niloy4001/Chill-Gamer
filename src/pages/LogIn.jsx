@@ -54,74 +54,74 @@ const LogIn = () => {
         <title>Login | Chill Gamer</title>
       </Helmet>
       <div className="flex justify-center items-center py-14 px-3">
-        <div className="card bg-base-100 w-full max-w-lg p-4 shrink-0 shadow-2xl">
-          {/* title */}
-          <h1 className="text-4xl text-center font-bold mb-5">Log In</h1>
-          {/* google log in */}
-          <div className="w-full px-8">
-            <button
-              onClick={handleGoogleLogIn}
-              className="btn text-[10px] md:text-sm border border-solid border-[#8758f1] hover:text-white hover:bg-gradient-to-b from-[#f948b2] to-[#8758f1] w-full flex items-center justify-center space-x-2 mb-2"
-            >
-              <FaGoogle className="text-[#8758f1] " />
-              <span>Login with Google</span>
-            </button>
-          </div>
-          {/* divider */}
-          <div className="px-8 mt-4">
-            <div className="divider my-0">OR</div>
-          </div>
-          {/* form  */}
-          <form className="card-body" onSubmit={handleSubmit}>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                ref={emailRef}
-                type="email"
-                placeholder="email"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control relative">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                ref={passwordRef}
-                type={eye ? "text" : "password"}
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
-              <span
-                onClick={() => setEye(!eye)}
-                className="absolute top-[52px] right-[8px] cursor-pointer"
-              >
-                {eye ? <HiOutlineEyeOff /> : <RiEyeLine />}
-              </span>
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">
-                Login
+        <div className="flex flex-col-reverse md:flex-row w-full md:w-[80%]  lg:w-[60%] ">
+          {/* form div */}
+          <div className=" bg-white w-full md:w-[50%] p-4 shrink-0 shadow-2xl">
+            {/* title */}
+            <h1 className="text-4xl text-center font-bold mb-5 flex justify-between items-center px-6">
+              <span >Log In</span>
+              {/* google log in */}
+              <button onClick={handleGoogleLogIn}  className="text-2xl text-[#0B0223]">
+                <FaGoogle></FaGoogle>
               </button>
+            </h1>
+            {/* form  */}
+            <form className="card-body" onSubmit={handleSubmit}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  ref={emailRef}
+                  type="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control relative">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  ref={passwordRef}
+                  type={eye ? "text" : "password"}
+                  placeholder="password"
+                  className="input input-bordered"
+                  required
+                />
+                <span
+                  onClick={() => setEye(!eye)}
+                  className="absolute top-[52px] right-[8px] cursor-pointer"
+                >
+                  {eye ? <HiOutlineEyeOff /> : <RiEyeLine />}
+                </span>
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">
+                  Login
+                </button>
+              </div>
+              <div>
+                <p className="text-left text-red-600">
+                  {errorMessage && errorMessage}{" "}
+                </p>
+              </div>
+            </form>
+          </div>
+          {/* right info div */}
+          <div className="flex items-center justify-center text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] w-full md:w-[50%] py-7 shadow-2xl">
+            <div className="text-center text-white">
+              <h1 className="text-3xl font-bold mb-2">Welcome to login</h1>
+              <p className="mb-4">Don't have an account?</p>
+              <Link
+                to={"/register"}
+                className="px-6 py-2 text-pink-500 bg-white rounded-md font-semibold hover:bg-pink-100"
+              >
+                Sign Up
+              </Link>
             </div>
-            <div>
-              <p className="text-left text-red-600">
-                {errorMessage && errorMessage}{" "}
-              </p>
-            </div>
-            <div>
-              <p className="text-center my-3">
-                Don't Have an Account ?{" "}
-                <Link to={"/register"} className="text-red-600 font-medium">
-                  Register
-                </Link>
-              </p>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

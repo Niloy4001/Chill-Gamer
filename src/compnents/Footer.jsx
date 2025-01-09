@@ -10,6 +10,9 @@ const Footer = () => {
       <div className="w-[90%] mx-auto">
         <section className="footer  p-10 ">
           <nav>
+            <h1 className="text-2xl md:text-4xl font-extrabold">Chill Gamer</h1>
+          </nav>
+          <nav>
             <h6 className="footer-title">Services</h6>
             <Link to={"/allReviews"} className="link link-hover">
               All review
@@ -17,18 +20,12 @@ const Footer = () => {
             <Link to={"/addReview"} className="link link-hover">
               Add review
             </Link>
-            
             <Link
               to={`/MyReviews/:${user && user.email}`}
               className="link link-hover"
             >
               My Review
             </Link>
-          </nav>
-          <nav>
-            <h6 className="footer-title">Company</h6>
-            <p className="link link-hover">About us</p>
-            <p className="link link-hover">Contact</p>
           </nav>
           <nav>
             <h6 className="footer-title">Social</h6>

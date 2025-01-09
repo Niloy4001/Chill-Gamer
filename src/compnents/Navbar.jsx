@@ -65,20 +65,30 @@ const Navbar = () => {
           >
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allReviews">All Reviews</NavLink>
-            <NavLink to="/addReview">Add Review</NavLink>
-            <NavLink to={`/MyReviews/${user && user.email}`}>
-              My Reviews
-            </NavLink>
-            <NavLink to={`/gameWatchList/${user && user.email}`}>
-              Game WatchList
-            </NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+            {!user && <NavLink to="/login">LogIn</NavLink>}
+            {!user && <NavLink to="/register">Register</NavLink>}
+            {user && <NavLink to="/addReview">Add Review</NavLink>}
+
+            {user && (
+              <NavLink to={`/MyReviews/${user && user.email}`}>
+                My Reviews
+              </NavLink>
+            )}
+            {user && (
+              <NavLink to={`/gameWatchList/${user && user.email}`}>
+                Game WatchList
+              </NavLink>
+            )}
+
             <div
               onClick={() => handleMode()}
               className=" shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]  btn btn-sm   rounded-full"
             >
               {mode === "light" ? <FaRegMoon /> : <MdOutlineLightMode />}
             </div>
-            {user ? (
+            {user && 
+            (
               <div className="auth flex items-center gap-2 lg:flex-row flex-col">
                 <button className=" border-none  rounded-full">
                   {
@@ -102,22 +112,24 @@ const Navbar = () => {
                   Log Out
                 </button>
               </div>
-            ) : (
-              <div className="auth flex items-center gap-2 lg:flex-row flex-col">
-                <Link
-                  to={"/login"}
-                  className="btn btn-sm  shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded"
-                >
-                  Login
-                </Link>
-                <Link
-                  to={"/register"}
-                  className="btn btn-sm  shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded"
-                >
-                  Register
-                </Link>
-              </div>
-            )}
+            )
+            //  : (
+              // <div className="auth flex items-center gap-2 lg:flex-row flex-col">
+              //   <Link
+              //     to={"/login"}
+              //     className="btn btn-sm  shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded"
+              //   >
+              //     Login
+              //   </Link>
+              //   <Link
+              //     to={"/register"}
+              //     className="btn btn-sm  shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1] rounded"
+              //   >
+              //     Register
+              //   </Link>
+              // </div>
+            // )
+            }
           </nav>
           {/* Authentication */}
 

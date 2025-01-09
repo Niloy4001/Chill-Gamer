@@ -56,7 +56,7 @@ const AddReview = () => {
         Add Review
       </h1>
       {/* <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto"> */}
-      <div className="card bg-gradient-to-r text-white from-[#f948b2] to-[#8758f1] w-full lg:w-[70%] shrink-0 shadow-2xl mx-auto">
+      <div className="card bg-gradient-to-r text-white from-[#f948b2] to-[#8758f1] w-full lg:w-[70%] shrink-0 shadow-2xl rounded-none mx-auto">
         <form className="card-body space-y-3" onSubmit={handleSubmitReview}>
           {/* Game Cover Image/Thumbnail */}
           <div className="form-control">

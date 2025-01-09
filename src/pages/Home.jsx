@@ -3,6 +3,7 @@ import Slider from "../compnents/Slider";
 import HighestRated from "../compnents/HighestRated";
 import MostPopular from "../compnents/MostPopular";
 import NewsLetter from "../compnents/NewsLetter";
+import Blogs from "../compnents/Blogs";
 // import { MdOutlineLightMode } from "react-icons/md";
 // import { FaRegMoon } from "react-icons/fa";
 // import { getFromLs } from "../utility";
@@ -21,6 +22,7 @@ const Home = () => {
       </div> */}
       <HighestRated></HighestRated>
       <MostPopular></MostPopular>
+      <Blogs></Blogs>
       <NewsLetter></NewsLetter>
     </div>
   );

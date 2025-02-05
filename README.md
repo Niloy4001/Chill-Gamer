@@ -97,13 +97,10 @@ Contributions are welcome! To contribute:
 3️⃣ Commit your changes.  
 4️⃣ Push to the branch and create a **Pull Request**.  
 
----
 
 
 
 
 
-💡 *Enjoy exploring and sharing your favorite games with Chill Gamer!* 🎮🚀  
-```
 
-This README is **visually appealing**, **well-structured**, and **easy to read** while providing all necessary information. Let me know if you need any modifications! 🚀🎮
+
